@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import Article
+from .forms import ContactForm
 
 class IndexPage(TemplateView):
     
@@ -35,3 +36,20 @@ class IndexPage(TemplateView):
         }
 
         return render(request, 'index.html', context)
+
+
+class AboutPage(TemplateView):
+    template_name = 'about.html'
+
+
+def contact_page(request):
+    contact_form = ContactForm(request.POST or None)
+    context = {
+        'title': 'Contact',
+        'content': 'Welcome to the Contact Page.',
+        'form': contact_form
+    }
+
+    if contact_form.is_valid():
+        print(contact_form.cleaned_data)
+    return render(request, 'contact.html', context)
