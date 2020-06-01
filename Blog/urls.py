@@ -10,6 +10,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('blog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^api-auth/', include('rest_framework.urls')),
+    
 ]
 
 if settings.DEBUG:

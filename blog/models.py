@@ -33,6 +33,9 @@ class Article(models.Model):
     author          = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     promote         = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['created_at']
+
 
 class Category(models.Model):
     title = models.CharField(max_length=128, null=False, blank=False)

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     # third party
     'ckeditor',
+    'rest_framework',
     
     # own
     'blog',
